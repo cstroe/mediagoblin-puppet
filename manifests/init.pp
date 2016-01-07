@@ -8,5 +8,5 @@ class mediagoblin {
     'python-imaging', 
     'python-lxml',
     'python-virtualenv',
-  ])
+  ], { 'ensure' => 'installed' })
 }
