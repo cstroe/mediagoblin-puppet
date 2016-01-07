@@ -1,4 +1,6 @@
 class mediagoblin {
+  include mediagoblin::database
+
   ensure_packages([
     'automake',
     'git-core',
