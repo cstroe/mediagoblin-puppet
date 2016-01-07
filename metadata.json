@@ -1,0 +1,20 @@
+{
+  "name": "mediagoblin",
+  "version": "0.0.1",
+  "author": "Cosmin Stroe <cstroe@users.sf.net>",
+  "license": "Affero GPL v3",
+  "summary": "A module to install Mediagoblin",
+  "source": "https://github.com/cstroe/mediagoblin-puppet",
+  "project_page": "https://github.com/cstroe/mediagoblin-puppet",
+  "issues_url": "https://github.com/cstroe/mediagoblin-puppet/issues",
+  "tags": ["digital content management", "mediagoblin"],
+  "operatingsystem_support": [
+    {
+    "operatingsystem": "Ubuntu",
+    "operatingsystemrelease": [ "14.04" ]
+    }
+   ],
+  "dependencies": [
+    { "name": "puppetlabs/postgresql", "version_requirement": ">= 4.6.1" },
+  ],
+}
