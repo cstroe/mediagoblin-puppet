@@ -16,5 +16,5 @@
    ],
   "dependencies": [
     { "name": "puppetlabs/postgresql", "version_requirement": ">= 4.6.1" },
-  ],
+  ]
 }
