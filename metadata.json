@@ -15,7 +15,7 @@
     }
    ],
   "dependencies": [
-    { "name": "puppetlabs/stdlib" }
+    { "name": "puppetlabs/stdlib" },
     { "name": "puppetlabs/postgresql" }
   ]
 }
