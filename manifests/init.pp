@@ -1,5 +1,5 @@
 class mediagoblin {
-  ensure_packages(
+  ensure_packages([
     'automake',
     'git-core',
     'nginx',
@@ -8,5 +8,5 @@ class mediagoblin {
     'python-imaging', 
     'python-lxml',
     'python-virtualenv',
-  )
+  ])
 }
