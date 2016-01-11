@@ -21,6 +21,6 @@ class mediagoblin::code(
     creates => "${::mediagoblin::install_path}/mediagoblin.ini",
     cwd     => $::mediagoblin::install_path,
     path    => ['/bin', '/usr/bin'],
-    require => File[$::mediagoblin::install_path],
+    require => Git::Repo['mediagoblin_git_repo'],
   }
 }
