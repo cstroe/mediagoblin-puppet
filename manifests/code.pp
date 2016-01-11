@@ -1,5 +1,8 @@
 class mediagoblin::code {
-  include git
+  class { git:
+    svn => false,
+    gui => false,
+  }
 
   file { 'mediagoblin_install_path':
     ensure  => directory,
