@@ -20,6 +20,7 @@ class mediagoblin::code(
     command => "./bootstrap.sh && ./configure && make",
     creates => "${::mediagoblin::install_path}/mediagoblin.ini",
     cwd     => $::mediagoblin::install_path,
+    path    => ['/bin', '/usr/bin'],
     require => File[$::mediagoblin::install_path],
   }
 }
