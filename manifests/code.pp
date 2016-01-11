@@ -24,7 +24,15 @@ class mediagoblin::code(
     require     => Git::Repo['mediagoblin_git_repo'],
     environment => ["HOME=${::mediagoblin::homedir_path}"],
     user        => 'mediagoblin',
-    notify      => Exec['mediagoblin_install_flup'],
+    notify      => [Exec['mediagoblin_install_flup'], Exec['mediagoblin_submodules']],
+  }
+
+  exec { 'mediagoblin_submodules':
+    command     => "git submodule init && git submodule update",
+    cwd         => $::mediagoblin::install_path,
+    path        => ['/bin', '/usr/bin'],
+    environment => ["HOME=${::mediagoblin::homedir_path}"],
+    user        => 'mediagoblin',
   }
 
   file { 'mediagoblin_upload_dir':
