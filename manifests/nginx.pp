@@ -7,6 +7,6 @@ class mediagoblin::nginx(
   file { 'mediagoblin_nginx_config':
     ensure  => 'present',
     path    => "${nginx_dir}/conf.d/mediagoblin.conf",
-    content => template('puppet:///mediagoblin/mediagoblin.conf.erb'),
+    content => template('mediagoblin/mediagoblin.conf.erb'),
   }
 }
