@@ -27,6 +27,7 @@ class mediagoblin::code(
   }
 
   file { 'mediagoblin_upload_dir':
+    ensure  => 'directory',
     path    => "${::mediagoblin::install_path}/user_dev",
     owner   => 'mediagoblin',
     group   => 'www-data',
