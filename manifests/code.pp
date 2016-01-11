@@ -7,19 +7,12 @@ class mediagoblin::code(
     gui => false,
   }
 
-  file { 'mediagoblin_install_path':
-    ensure  => directory,
-    path    => $::mediagoblin::install_path,
-    owner   => 'mediagoblin',
-    group   => 'www-data',
-    recurse => true,
-  }
-
   git::repo { 'mediagoblin_git_repo':
     path   => $::mediagoblin::install_path,
     source => $mediagoblin_git_repo,
     branch => $mediagoblin_git_branch,
     update => true,
-    notify => File['mediagoblin_install_path'],
+    owner   => 'mediagoblin',
+    group   => 'www-data',
   }
 }
