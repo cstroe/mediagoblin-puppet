@@ -1,5 +1,6 @@
 class mediagoblin(
-  $homedir = '/var/lib/mediagoblin',
+  $install_path = '/opt/mediagoblin',
+  $homedir_path = '/var/lib/mediagoblin',
 ) {
   include mediagoblin::database
 
@@ -17,10 +18,18 @@ class mediagoblin(
   user { 'mediagoblin_user':
     ensure     => 'present',
     name       => 'mediagoblin',
-    home       => $homedir,
+    home       => $homedir_path,
     comment    => 'GNU MediaGoblin system account',
     managehome => true,
     groups     => 'www-data',
     system     => true,
+  }
+
+  file { 'mediagoblin_install_path':
+    ensure  => directory,
+    path    => $install_path,
+    owner   => 'mediagoblin',
+    group   => 'www-data',
+    recurse => true,
   }
 }
