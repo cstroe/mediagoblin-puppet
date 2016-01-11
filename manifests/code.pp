@@ -22,5 +22,6 @@ class mediagoblin::code(
     cwd     => $::mediagoblin::install_path,
     path    => ['/bin', '/usr/bin'],
     require => Git::Repo['mediagoblin_git_repo'],
+    user    => 'mediagoblin',
   }
 }
