@@ -25,4 +25,12 @@ class mediagoblin::code(
     environment => ["HOME=${::mediagoblin::homedir_path}"],
     user        => 'mediagoblin',
   }
+
+  file { 'mediagoblin_upload_dir':
+    path    => "${::mediagoblin::install_path}/user_dev",
+    owner   => 'mediagoblin',
+    group   => 'www-data',
+    mode    => '0750',
+    require => Exec['mediagoblin_environment_setup'],
+  }
 }
