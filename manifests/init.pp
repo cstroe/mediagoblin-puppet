@@ -21,5 +21,6 @@ class mediagoblin(
     comment    => 'GNU MediaGoblin system account',
     managehome => true,
     groups     => 'www-data',
+    system     => true,
   }
 }
