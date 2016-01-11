@@ -2,8 +2,6 @@ class mediagoblin(
   $install_path = '/opt/mediagoblin',
   $homedir_path = '/var/lib/mediagoblin',
 ) {
-  include mediagoblin::database
-
   ensure_packages([
     'automake',
     'nginx',
@@ -26,5 +24,5 @@ class mediagoblin(
     system     => true,
   }
 
-  contain mediagoblin::code
+  contain mediagoblin::code, mediagoblin::database, mediagoblin::config, mediagoblin::nginx
 }

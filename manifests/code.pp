@@ -14,6 +14,7 @@ class mediagoblin::code(
     update => true,
     owner   => 'mediagoblin',
     group   => 'www-data',
+    require => User['mediagoblin'],
   }
 
   exec { 'mediagoblin_environment_setup':
