@@ -7,9 +7,10 @@ class mediagoblin::config {
   }
 
   exec { 'mediagoblin_update_database':
-    command => "${::mediagoblin::install_path}/bin/gmg dbupdate",
-    cwd     => $::mediagoblin::install_path,
-    user    => 'mediagoblin',
-    path    => ['/bin', '/usr/bin'],
+    command     => "${::mediagoblin::install_path}/bin/gmg dbupdate",
+    cwd         => $::mediagoblin::install_path,
+    environment => "HOME=${::mediagoblin::homedir_path}",
+    user        => 'mediagoblin',
+    path        => ['/bin', '/usr/bin'],
   }
 }
