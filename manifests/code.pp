@@ -24,6 +24,7 @@ class mediagoblin::code(
     require     => Git::Repo['mediagoblin_git_repo'],
     environment => ["HOME=${::mediagoblin::homedir_path}"],
     user        => 'mediagoblin',
+    notify      => Exec['mediagoblin_install_flup'],
   }
 
   file { 'mediagoblin_upload_dir':
@@ -33,5 +34,13 @@ class mediagoblin::code(
     group   => 'www-data',
     mode    => '0750',
     require => Exec['mediagoblin_environment_setup'],
+  }
+
+  exec { 'mediagoblin_install_flup':
+    command     => "${::mediagoblin::install_path}/bin/easy_install flup",
+    environment => ["HOME=${::mediagoblin::homedir_path}"],
+    path        => ['/bin', '/usr/bin'],
+    user        => 'mediagoblin',
+    refreshonly => true,
   }
 }
