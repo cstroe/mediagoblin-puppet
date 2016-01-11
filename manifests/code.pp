@@ -15,4 +15,11 @@ class mediagoblin::code(
     owner   => 'mediagoblin',
     group   => 'www-data',
   }
+
+  exec { 'mediagoblin_environment_setup':
+    command => "./bootstrap.sh && ./configure && make",
+    creates => "${::mediagoblin::install_path}/mediagoblin.ini",
+    cwd     => $::mediagoblin::install_path,
+    require => File[$::mediagoblin::install_path],
+  }
 }
