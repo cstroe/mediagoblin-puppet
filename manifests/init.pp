@@ -7,6 +7,7 @@ class mediagoblin(
   ensure_packages([
     'automake',
     'nginx',
+    'nodejs-legacy',
     'npm',
     'python',
     'python-dev',
