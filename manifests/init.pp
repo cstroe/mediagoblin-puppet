@@ -1,4 +1,6 @@
-class mediagoblin {
+class mediagoblin(
+  $homedir = '/var/lib/mediagoblin',
+) {
   include mediagoblin::database
 
   ensure_packages([
@@ -11,4 +13,13 @@ class mediagoblin {
     'python-lxml',
     'python-virtualenv',
   ], { 'ensure' => 'installed' })
+
+  user { 'mediagoblin_user':
+    ensure     => 'present',
+    name       => 'mediagoblin',
+    home       => $homedir,
+    comment    => 'GNU MediaGoblin system account',
+    managehome => true,
+    groups     => 'www-data',
+  }
 }
