@@ -17,5 +17,6 @@
   "dependencies": [
     { "name": "puppetlabs/stdlib" },
     { "name": "puppetlabs/postgresql" }
+    { "name": "jproyo/git" }
   ]
 }
