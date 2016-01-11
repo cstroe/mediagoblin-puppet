@@ -17,7 +17,7 @@ class mediagoblin::code(
   }
 
   exec { 'mediagoblin_environment_setup':
-    command => "./bootstrap.sh && ./configure && make",
+    command => "${::mediagoblin::install_path}/bootstrap.sh && ${::mediagoblin::install_path}/configure && make",
     creates => "${::mediagoblin::install_path}/mediagoblin.ini",
     cwd     => $::mediagoblin::install_path,
     path    => ['/bin', '/usr/bin'],
