@@ -17,11 +17,12 @@ class mediagoblin::code(
   }
 
   exec { 'mediagoblin_environment_setup':
-    command => "${::mediagoblin::install_path}/bootstrap.sh && ${::mediagoblin::install_path}/configure && make",
-    creates => "${::mediagoblin::install_path}/mediagoblin.ini",
-    cwd     => $::mediagoblin::install_path,
-    path    => ['/bin', '/usr/bin'],
-    require => Git::Repo['mediagoblin_git_repo'],
-    user    => 'mediagoblin',
+    command     => "${::mediagoblin::install_path}/bootstrap.sh && ${::mediagoblin::install_path}/configure && make",
+    creates     => "${::mediagoblin::install_path}/mediagoblin.ini",
+    cwd         => $::mediagoblin::install_path,
+    path        => ['/bin', '/usr/bin'],
+    require     => Git::Repo['mediagoblin_git_repo'],
+    environment => ["HOME=${::mediagoblin::homedir_path}"],
+    user        => 'mediagoblin',
   }
 }
